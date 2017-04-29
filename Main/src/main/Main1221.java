@@ -5,6 +5,11 @@
  */
 package main;
 
+/**
+ *
+ * @author Stiven
+ */
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,11 +37,10 @@ public class Main1221 {
                 solve(list.get(i));
             }
         }
-    
     public static void solve(long l)
         {
         int c=2;
-        for (int i=2; i < l; i++) 
+        for (int i=2; i < Math.sqrt(l); i++) 
             {
             if(l%i==0)
                 {
