@@ -26,18 +26,21 @@ public class Main2157 {
             int y=Integer.valueOf(st.nextToken());
             String st1="",st2="";
             for (int j = x; j <= y; j++)     
-                {
+                {  
                 st1+=j;
-                int index=j;
-                while(index>0)
-                    {        
-                    st2=index%10+st2;
-                    index/=10;
-                    }
+                String index=j+"";
+                st2=reverse(index)+st2;
                 }    
             System.out.println(st1+st2);
     
             }
     }
+    public static String reverse(String palabra) {
+        if (palabra.length() == 1)
+            return palabra;
+        else 
+            return reverse(palabra.substring(1)) + palabra.charAt(0);
+}
+
     
 }
