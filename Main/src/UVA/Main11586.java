@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
  * @author stiven
  * 11586 - Train Tracks
  */
-public class Main {
+public class Main11586 {
     public static void main(String[] args) throws IOException {
         BufferedReader in=new  BufferedReader(new InputStreamReader(System.in));
         int casos=Integer.valueOf(in.readLine());
