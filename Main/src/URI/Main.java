@@ -57,13 +57,13 @@ public class Main {
         if (isSafe(Maze, x, y))
             {
             sol[x][y]=0;
-            if(!direccion.equals("up")&&solveMazeUtil(Maze, x+1, y, sol,"down"))
+            if(!direccion.equals("up") && solveMazeUtil(Maze, x+1, y, sol,"down"))
                 return true;
-            if (!direccion.equals("left") && solveMazeUtil(Maze,x, y+1, sol,"right"))
-                return true;
-            if(!direccion.equals("right") && solveMazeUtil(Maze, x, y-1, sol,"left"))
+            if(!direccion.equals("left") && solveMazeUtil(Maze,x, y+1, sol,"right"))
                 return true;
             if(!direccion.equals("down") && solveMazeUtil(Maze, x-1, y, sol,"up"))
+                return true;
+            if(!direccion.equals("right") && solveMazeUtil(Maze, x, y-1, sol,"left"))
                 return true;
             sol[x][y]=1;
             return false;
