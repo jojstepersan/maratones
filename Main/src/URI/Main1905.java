@@ -10,7 +10,7 @@ import java.io.IOException;
  *
  * @author jojstepersan
  */
-public class Main {
+public class Main1905 {
 
     final int N = 5;
 
@@ -77,7 +77,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Main rat = new Main();
+        Main1905 rat = new Main1905();
         BufferedReader in =new BufferedReader(new InputStreamReader(System.in));
         //Scanner sc = new Scanner(System.in);
         int casos = Integer.parseInt(in.readLine());
