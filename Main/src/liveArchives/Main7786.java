@@ -7,6 +7,7 @@ package liveArchives;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -17,24 +18,64 @@ import java.util.Queue;
  */
 public class Main7786 {
     static ArrayList<Tree> arr=new ArrayList<>();
+    static int[][] mat;
     public static void main(String[] args) {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(Long.MAX_VALUE+": max value");
-        calculateTree();
-        int k=1;
+       // System.out.println(Long.MAX_VALUE+": max value");
+       //calculateTree();
+        
+       calculateTree2();
+        
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[i].length; j++) {
+                System.out.print(mat[i][j]+" ");
+            }
+            System.out.println("");
+        }
         //System.out.println(arr.get(0));
-        for (int i = 0; i <arr.size(); i++) {
+        /*for (int i = 0; i <arr.size(); i++) {
             if(i==Math.pow(2, k)-1)
                 {
                 k++;
                 System.out.println("");
                 }
-            System.out.print(arr.get(i)+ " ");
+            System.out.print(arr.get(i).p+ " ");
             
             
-        }
+        }*/
+        
         System.out.println("fin");
+        System.out.println("P: "+BigInteger.valueOf((long) (Math.pow(2, 25)-1)));
     }
+    
+    public static void calculateTree2()
+        {
+        Queue<Integer> qq=new LinkedList<>();
+        mat=new int[5][];
+        mat[0]=new int[1];
+        mat[0][0]=1;
+        mat[1]=new int[2];
+        mat[1][0]=1;
+        mat[1][1]=2;
+        for (int i = 2; i < mat.length; i++) {
+            mat[i]=new int[(int)Math.pow(2,i-1)+1];
+            qq.add(1);
+            System.out.println("lenght: "+mat[i-1].length);
+            for (int j = 1; j <mat[i-1].length; j++) {
+                int a,b;
+                a=mat[i-1][j];
+                b=mat[i-1][j-1];
+                qq.add(a+b);
+                qq.add(a);
+                }
+            System.out.println(qq);
+            for (int j = 0; j < qq.size(); j++) {
+                mat[i][j]=qq.remove();
+            }
+            
+    
+            }
+        }
     public static void calculateTree()
         {
         Queue<Tree> cola=new LinkedList<>();
