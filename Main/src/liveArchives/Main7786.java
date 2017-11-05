@@ -24,28 +24,29 @@ public class Main7786 {
        // System.out.println(Long.MAX_VALUE+": max value");
        //calculateTree();
         
-       calculateTree2();
-        
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat[i].length; j++) {
-                System.out.print(mat[i][j]+" ");
-            }
-            System.out.println("");
-        }
+       calculateTree();
+        System.out.println("fin");
+//        for (int i = 0; i < mat.length; i++) {
+//            for (int j = 0; j < mat[i].length; j++) {
+//                System.out.print(mat[i][j]+" ");
+//            }
+//            System.out.println("");
+//        }
+        int k=0;
         //System.out.println(arr.get(0));
-        /*for (int i = 0; i <arr.size(); i++) {
+        for (int i = 0; i <arr.size(); i++) {
             if(i==Math.pow(2, k)-1)
                 {
                 k++;
                 System.out.println("");
                 }
-            System.out.print(arr.get(i).p+ " ");
+            System.out.print(arr.get(i)+ "\t");
             
             
-        }*/
+        }
         
-        System.out.println("fin");
-        System.out.println("P: "+BigInteger.valueOf((long) (Math.pow(2, 25)-1)));
+        System.out.println("\nfin");
+        //System.out.println("P: "+BigInteger.valueOf((long) (Math.pow(2, 27)-1)));
     }
     
     public static void calculateTree2()
@@ -79,12 +80,12 @@ public class Main7786 {
     public static void calculateTree()
         {
         Queue<Tree> cola=new LinkedList<>();
-        long p=1,q=1;    
+        long p=1,q=2;    
         arr.add(new Tree(p,q));
         cola.add(arr.get(0));
         boolean flag=true;//si true entonces left else right
         Tree aux=cola.remove();
-        for (int i = 1; i <Math.pow(2, 10)-1; i++) {
+        for (int i = 1; i <Math.pow(2, 12)-1; i++) {
             if(flag)
                 {
                 arr.add(i,new Tree(aux.p, aux.p+aux.q));

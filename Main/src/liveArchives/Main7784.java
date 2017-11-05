@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  * 7784 - FBI Universal Control Numbers
  * @author jojstepersan
  */
-public class Main {
+public class Main7784 {
     public static void main(String[] args) throws IOException {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
         //System.out.println(" max: "+Long.MAX_VALUE);
