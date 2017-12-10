@@ -11,10 +11,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- *
+ * Assigning Teams 2345
  * @author jojstepersan
  */
-public class Main {
+public class Main2345 {
     public static void main(String[] args) throws IOException {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st=new StringTokenizer(in.readLine());

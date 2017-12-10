@@ -1,3 +1,4 @@
+package codeForce;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,19 +12,21 @@ import java.util.StringTokenizer;
  */
 
 /**
- *
+ * 832A - Sasha and Sticks
  * @author jojstepersan
  */
-public class Main {
+public class Main832A {
     public static void main(String[] args) throws IOException {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
         String s=in.readLine();
         StringTokenizer st=new StringTokenizer(s);
-        long n,m,a;
-        n=Long.parseLong(st.nextToken());
-        m=Long.parseLong(st.nextToken());
-        a=Long.parseLong(st.nextToken());
-        System.out.println(n/a+m/a);
+        long n,k;
+        n=Long.valueOf(st.nextToken());
+        k=Long.valueOf(st.nextToken());
+        if((n/k)%2==0)
+            System.out.println("NO");
+        else System.out.println("YES");
+        
     }
     
 }
