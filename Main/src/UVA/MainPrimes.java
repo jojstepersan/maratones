@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author usuario
  */
-public class Main {
+public class MainPrimes {
 
     static int MAX = 10000000;
     static ArrayList<Integer> primes = new ArrayList<>();

@@ -32,7 +32,7 @@ public class Main4627 {
             m=Integer.parseInt(st.nextToken());
             long mat[][]=new long[n+2][m+2];
             for (int j = 1; j <=n; j++) {
-                st=new  StringTokenizer(in.readLine());
+                st=new StringTokenizer(in.readLine());
                 for (int k = 1; k <= m; k++) {
                     mat[j][k]=Integer.parseInt(st.nextToken());
                     }
@@ -108,6 +108,7 @@ public class Main4627 {
                 }
             }
         }
+    
     public static void show(int mat[][])
         {
             for (int i = 0; i < mat.length; i++) {
