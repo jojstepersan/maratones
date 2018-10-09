@@ -16,10 +16,12 @@ import java.util.HashMap;
 public class Main {
 
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    static float sum = 0;
+    static int lmd = 0;
 
     public static void main(String[] args) throws Exception {
         String s;
-        int lmd = 0;
+
         HashMap<String, Integer> freq = new HashMap<>();
         while (!(s = in.readLine()).equals("****END_OF_INPUT****")) {
             if (!s.equals("****END_OF_TEXT****")) {
@@ -35,22 +37,28 @@ public class Main {
                 s = s.replace(')', ' ');
                 s = s.replace('[', ' ');
                 s = s.replace(']', ' ');
-               // System.out.println(s);
+                // System.out.println(s);
                 String arr[] = s.split(" ");
                 for (int i = 0; i < arr.length; i++) {
                     if (!arr[i].equals("")) {
                         lmd++;
                         if (freq.containsKey(arr[i])) {
-                            freq.replace(arr[i], freq.get(arr[i])+1);
+                            freq.replace(arr[i], freq.get(arr[i]) + 1);
                         } else {
                             freq.put(arr[i], 1);
                         }
                     }
                 }
             } else {
-                System.out.println(freq);
-                System.out.println("res: " + lmd);
+
+                freq.forEach((k, v) -> {
+                    sum += v * (Math.log10(lmd) - Math.log10(v));
+                });
+                float er = sum / lmd;
+
+                System.out.printf("%d %.1f %d\n", lmd, er,(int)(er*100/Math.log10(lmd)));
                 lmd = 0;
+                sum = 0;
                 freq = new HashMap<>();
             }
 
