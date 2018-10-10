@@ -52,12 +52,10 @@ public class Main860 {
                 }
             } else {
                 if (lmd != 0) {
-                    freq.forEach((k, v) -> {
-                        sum += v * (Math.log10(lmd) - Math.log10(v));
-                    });
+                    freq.forEach((k, v) -> sum += v * (Math.log10(lmd) - Math.log10(v)));
                     double er = sum / lmd;
-                    double res =  er * 100 /  Math.log10(lmd);
-                    System.out.printf("%d %.1f %d\n", lmd, er, (int)Math.round(res));
+                    double res = er * 100 / Math.log10(lmd);
+                    System.out.printf("%d %.1f %d\n", lmd, er, (int) Math.round(res));
                 } else {
                     System.out.println("0 0.0 0");
                 }
