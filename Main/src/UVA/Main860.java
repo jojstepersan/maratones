@@ -38,7 +38,7 @@ public class Main860 {
                 s = s.replace(')', ' ');
                 s = s.replace('[', ' ');
                 s = s.replace(']', ' ');
-                // System.out.println(s);
+            //     System.out.println(s);
                 String arr[] = s.split(" ");
                 for (int i = 0; i < arr.length; i++) {
                     if (!arr[i].equals("")) {
@@ -56,8 +56,8 @@ public class Main860 {
                     sum += v * (Math.log10(lmd) - Math.log10(v));
                 });
                 float er = sum / lmd;
-
-                System.out.printf("%d %.1f %d\n", lmd, er,(int)(er*100/Math.log10(lmd)));
+                Float res=(float)er*100/(float)Math.log10(lmd);
+                System.out.printf("%d %.1f %d\n", lmd, er,(int)Math.round(res));
                 lmd = 0;
                 sum = 0;
                 freq = new HashMap<>();
