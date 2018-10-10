@@ -11,9 +11,10 @@ import java.util.HashMap;
 
 /**
  *
- * @author Usuario
+ * @author jojstepersan
+ * 860 - Entropy Text Analyzer
  */
-public class Main {
+public class Main860 {
 
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static float sum = 0;
