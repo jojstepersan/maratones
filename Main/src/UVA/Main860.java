@@ -27,19 +27,8 @@ public class Main860 {
         while (!(s = in.readLine()).equals("****END_OF_INPUT****")) {
             if (!s.equals("****END_OF_TEXT****")) {
                 s = s.toLowerCase();
-//                s = s.replace(',', ' ');
-//                s = s.replace('.', ' ');
-//                s = s.replace(':', ' ');
-//                s = s.replace(';', ' ');
-//                s = s.replace('!', ' ');
-//                s = s.replace('?', ' ');
-//                s = s.replace('"', ' ');
-//                s = s.replace('(', ' ');
-//                s = s.replace(')', ' ');
-//                s = s.replace('[', ' ');
-//                s = s.replace(']', ' ');
                 //     System.out.println(s);
-                String arr[] = s.split("[, .:;!?()\"]");
+                String arr[] = s.split("[, .:;!?()\"\t\n]");
                 for (int i = 0; i < arr.length; i++) {
                     if (!arr[i].equals("")) {
                         lmd++;
