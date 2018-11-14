@@ -1,0 +1,5 @@
+cargarPrimos();
+cargarPrimos0();
+cargarPrimos50();
+cargarPrimos100();
+cargarPrimos150();

@@ -41,9 +41,13 @@ public class CreadorDePrimos {
         }
         primos = primos.substring(0, primos.length() - 1);
         primos += "}";
-        BufferedWriter writer = new BufferedWriter(new FileWriter("primos"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("primos.txt"));
         writer.write(primos);
-        writer.append("\n\n" + llamarPrimos);
+       // writer.append("\n\n" + llamarPrimos);
+        writer.close();
+        writer = new BufferedWriter(new FileWriter("llamarPrimos.txt"));
+        writer.write(llamarPrimos);
+       // writer.append("\n\n" + llamarPrimos);
         writer.close();
         System.out.println(primos);
         System.out.println(llamarPrimos);

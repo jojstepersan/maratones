@@ -178,9 +178,3 @@ primo.add(977);
 primo.add(983);
 primo.add(991);
 primo.add(997);}
-
-cargarPrimos();
-cargarPrimos0();
-cargarPrimos50();
-cargarPrimos100();
-cargarPrimos150();
