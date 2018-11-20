@@ -31,7 +31,7 @@ public class CreadorDePrimos {
         int c = 0;
         for (int i = 2; i <= primosHasta; i++) {
             if (esPrimo(i)) {
-                if (c % 50 == 0) {
+                if (c % 100 == 0) {
                     primos += "}\n\nstatic void cargarPrimos" + c + "(){\n";
                     llamarPrimos += "cargarPrimos" + c + "();\n";
                 }
