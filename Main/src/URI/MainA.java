@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
 import java.util.Locale;
 
 /**
- *regional 2018 A
+ * regional 2018 A
+ *
  * @author jojstepersan
  */
 public class MainA {
@@ -21,20 +22,23 @@ public class MainA {
     public static void main(String[] args) throws Exception {
         Locale.setDefault(Locale.US);
         String s = in.readLine().trim();
-        float f = Float.valueOf(s);
-        int g = 360;
+        double f = Float.valueOf(s);
+        int g = 36000;
         String st[] = s.split("[.]");
-        int x = Integer.valueOf(st[1]);
-        if (x > 0) {
-            if (x % 10 == 0) {
-                f *= 10;
-                g *= 10;
-            } else {
-                f *= 100;
-                g *= 100;
-            }
-        }
-        System.out.println(mcm((int) f, g) / (int) f);
+        String n = st[0] + st[1];
+//        int x = Integer.valueOf(st[1]);
+//        if (x > 0) {
+//            if (x % 10 == 0) {
+//                f *= 10;
+//                g *= 10;
+//            } else {
+//                f *= 100;
+//                g *= 100;
+//            }
+//        }
+        int x = Integer.valueOf(n);
+      //  System.out.println(mcm((int) f, g) / (int) f);
+      System.out.println(mcm((int) x, g) / (int) x);
     }
 
     static int mcm(int x, int y) {
