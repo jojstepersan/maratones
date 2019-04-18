@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
  *
  * @author jojstepersan 1185 - Big Number
  */
-public class Main {
+public class Main1185 {
 
     static int MAX = 10000000 + 5;
     static int DP[] = new int[MAX];
