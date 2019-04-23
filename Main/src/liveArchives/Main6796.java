@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 
 /**
  * 6796 - Factorial Factors
@@ -57,17 +56,13 @@ public class Main6796 {
             while (temp % factor == 0) {
                 primesFactors.add((long) factor);
                 Long auxFactor = (long) factor;
-                //  if (!primesFactorDistincs.contains(auxFactor)) {
                 primesFactorDistincs.add(auxFactor);
-                //}
                 temp /= factor;
             }
         }
         if (temp != 1) {
             primesFactors.add(temp);
-            //if (!primesFactorDistincs.contains(temp)) {
             primesFactorDistincs.add(temp);
-            //}
         }
     }
 
