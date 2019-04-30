@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
  *
  * @author Jojstepersan 514 - Rails
  */
-public class Main {
+public class Main514 {
 
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static String result = "";
@@ -22,13 +22,17 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         String s;
+        boolean f=false;
         while (!(s = in.readLine()).equals("0")) {
             int n = Integer.valueOf(s);
+//            if(f)
+//                System.out.println("");
+//            f=true;
             while (!(s = in.readLine()).equals("0")) {
                 solve(s, n);
             }
-
             System.out.println("");
+
         }
     }
 
@@ -39,26 +43,18 @@ public class Main {
         int x = Integer.valueOf(st.nextToken());
         Stack<Integer> stack = new Stack<>();
         for (int i = 1; i <= n; i++) {
-            if (x == i) {
-                result += i+" ";
-                if (st.hasMoreTokens()) {
-                    x = Integer.valueOf(st.nextToken());
-                }
-            } else if ( x > i) {
-                stack.push(i);
-            } else if (x < i) {
-                if (!stack.isEmpty() && x == stack.peek()) {
-                    result += stack.pop()+" ";
-                    stack.push(i);
+            stack.push(i);
+            while (!stack.isEmpty()) {
+                if (stack.peek() == x) {
+                    stack.pop();
+                    if (st.hasMoreTokens()) {
+                        x = Integer.valueOf(st.nextToken());
+                    }
                 } else {
                     break;
                 }
             }
         }
-        while(!stack.isEmpty())result+=stack.pop()+" ";
-        
-        result=result.trim();
-       // System.out.println(result);
-        System.out.println(result.equals(s) ? "Yes" : "No");
+        System.out.println(stack.isEmpty() ? "Yes" : "No");
     }
 }
