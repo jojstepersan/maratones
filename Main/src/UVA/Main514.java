@@ -22,12 +22,9 @@ public class Main514 {
     public static void main(String[] args) throws Exception {
 
         String s;
-        boolean f=false;
+        boolean f = false;
         while (!(s = in.readLine()).equals("0")) {
             int n = Integer.valueOf(s);
-//            if(f)
-//                System.out.println("");
-//            f=true;
             while (!(s = in.readLine()).equals("0")) {
                 solve(s, n);
             }
@@ -44,14 +41,10 @@ public class Main514 {
         Stack<Integer> stack = new Stack<>();
         for (int i = 1; i <= n; i++) {
             stack.push(i);
-            while (!stack.isEmpty()) {
-                if (stack.peek() == x) {
-                    stack.pop();
-                    if (st.hasMoreTokens()) {
-                        x = Integer.valueOf(st.nextToken());
-                    }
-                } else {
-                    break;
+            while (!stack.isEmpty() && stack.peek() == x) {
+                stack.pop();
+                if (st.hasMoreTokens()) {
+                    x = Integer.valueOf(st.nextToken());
                 }
             }
         }
