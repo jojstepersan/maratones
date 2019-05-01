@@ -22,7 +22,6 @@ public class Main514 {
     public static void main(String[] args) throws Exception {
 
         String s;
-        boolean f = false;
         while (!(s = in.readLine()).equals("0")) {
             int n = Integer.valueOf(s);
             while (!(s = in.readLine()).equals("0")) {
