@@ -38,14 +38,10 @@ public class Main514 {
         Stack<Integer> stack = new Stack<>();
         for (int i = 1; i <= n; i++) {
             stack.push(i);
-            while (!stack.isEmpty()) {
-                if (stack.peek() == x) {
-                    stack.pop();
-                    if (st.hasMoreTokens()) {
-                        x = Integer.valueOf(st.nextToken());
-                    }
-                } else {
-                    break;
+            while (!stack.isEmpty() && stack.peek() == x) {
+                stack.pop();
+                if (st.hasMoreTokens()) {
+                    x = Integer.valueOf(st.nextToken());
                 }
             }
         }
