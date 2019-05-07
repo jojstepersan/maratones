@@ -20,19 +20,13 @@ public class Main514 {
     static String result = "";
 
     public static void main(String[] args) throws Exception {
-
         String s;
-        boolean f=false;
         while (!(s = in.readLine()).equals("0")) {
             int n = Integer.valueOf(s);
-//            if(f)
-//                System.out.println("");
-//            f=true;
             while (!(s = in.readLine()).equals("0")) {
                 solve(s, n);
             }
             System.out.println("");
-
         }
     }
 
