@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 /**
@@ -21,18 +22,20 @@ public class Main {
 
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-    static Car car;
     static double cost = 0;
-    static double minCost = Double.MAX_VALUE;
-    static DecimalFormat df = new DecimalFormat("#.#");
+    static double minCost ;
+    static DecimalFormat df = new DecimalFormat("#.##");
+    static int x=1;
 
     public static void main(String[] args) throws Exception {
         String s;
+        Locale.setDefault(Locale.US);
         while (!(s = in.readLine()).equals("-1")) {
+            minCost = Double.MAX_VALUE;
             double distance = Double.valueOf(s);
             st = new StringTokenizer(in.readLine());
+            Car car = new Car(Double.valueOf(st.nextToken()), Double.valueOf(st.nextToken()), Double.valueOf(st.nextToken()));
 
-            car = new Car(Double.valueOf(st.nextToken()), Double.valueOf(st.nextToken()), Double.valueOf(st.nextToken()));
             int nGasStation = Integer.valueOf(st.nextToken());
             GasStation[] gasStations = new GasStation[nGasStation];
             for (int i = 0; i < nGasStation; i++) {
@@ -41,44 +44,55 @@ public class Main {
             }
             for (int i = 0; i < Math.pow(2, nGasStation); i++) {
                 cost = car.costFull;
-                boolean arrive=false;
+                car.distance = distance;
+                boolean arrive;
                 String bin = Integer.toBinaryString(i);
+                double lastDistance = 0;
                 for (int j = 0; j < bin.length(); j++) {
-                    char c = bin.charAt(j);
-                    if (c == 1) {
+                    char c = bin.charAt(bin.length()-j-1);
+                    if (c == '1') {
                         GasStation gs = gasStations[j];
-                        double mpg = Double.valueOf(df.format(gs.distance / car.milesPerGallon));
-                        if (car.tank > mpg) {
+                        double distanceCapacity =car.tank * car.milesPerGallon;
+                        if (distanceCapacity > gs.distance) {
                             cost += 2;
-                            double gsCost=mpg*gs.costPerGallon;
-                            gsCost/=100;
-                            gsCost=Double.valueOf(df.format(gsCost));
-                            cost+=gsCost;
+                            double currentCost=(gs.distance/car.milesPerGallon)*gs.costPerGallon;
+                            currentCost=currentCost/100;
+                            cost+=currentCost;
+                            car.distance-=gs.distance-lastDistance;
+                            lastDistance=gs.distance;
+                        } else {
+                            break;
                         }
                     }
                 }
-                if(arrive)
+                car.distance -= car.milesPerGallon * car.tank;
+                arrive = car.distance <= 0;
+                if (arrive) {
                     minCost = Math.min(minCost, cost);
+                }
             }
-            System.out.println(minCost);
+            String result=df.format(minCost);
+            result=result.replace(",", ".");
+            System.out.printf("Data Set #%d\n",x++);
+            System.out.printf("minimum cost = $%s\n",result);
+           
         }
     }
 }
 
 class Car {
 
-    double tankFull;
     double costFull;
     double milesPerGallon;
     double totalCost;
     double tank;
+    double distance;
 
     public Car(double tank, double milesPerGallon, double costFull) {
-        this.tankFull = tank;
+        this.tank = tank;
         this.costFull = costFull;
         this.milesPerGallon = milesPerGallon;
         totalCost = 0;
-        this.tank = tankFull;
     }
 
 }
@@ -110,4 +124,4 @@ class GasStation {
 345.2 99.9
 -1
 
-*/
+ */
