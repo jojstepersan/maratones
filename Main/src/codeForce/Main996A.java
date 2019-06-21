@@ -32,6 +32,4 @@ public class Main996A {
         System.out.println(bills);
     }
     
-    
-      
 }
