@@ -3,33 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UVA;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.DataInputStream;
 
 /**
  *
- * @author Usuario uva 458
+ * @author Usuario
+ * uva 458
  */
-public class Main458{ 
+public class Main458 {
 
-    static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-
-    public static void main(String[] args) throws Exception {
-        String s;
-        boolean f=false;
-        while ((s = in.readLine()) != null) {
-            if(f)
-                System.out.println("");
-            else f=true;
-            for (int i = 0; i < s.length(); i++) {
-                if (s.charAt(i) != '\n') {
-                    System.out.print((char) (s.charAt(i) - 7));
-                }
-            }
-        }
+    //static  BufferedReader in =new BufferedReader(new InputStreamReader(System.in));
+    static DataInputStream in=new DataInputStream(System.in);
+    public static void main(String[] args)throws Exception {
+        int s;
         
+        while((s=in.read())!=-1){
+          
+                if(s!=10)
+                    System.out.print((char)(s-7));
+                else
+                    System.out.print((char)10);
+          
+        }
     }
-
+    
 }
