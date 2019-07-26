@@ -10,8 +10,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -52,12 +54,14 @@ public class Main13259 {
                     team1 = tablePos.get(nameT1);
                 } else {
                     team1 = new Team();
+                    team1.teamLost=new HashSet<>();
                     team1.name = nameT1;
                 }
                 if (tablePos.containsKey(nameT2)) {
                     team2 = tablePos.get(nameT2);
                 } else {
-                    team2 = new Team();
+                    team2 = new Team();                    
+                    team2.teamLost=new HashSet<>();
                     team2.name = nameT2;
                 }
 
@@ -69,8 +73,10 @@ public class Main13259 {
                     team2.points += 1;
                 } else if (scr1 > scr2) {
                     team1.points += 3;
+                    team2.teamLost.add(team1.name);
                 } else {
-                    team2.points += 3;
+                    team2.points += 3;                    
+                    team1.teamLost.add(team2.name);
                 }
                 //local
                 team1.TotalGoal += scr1;
@@ -94,6 +100,19 @@ public class Main13259 {
             List<Team> teams = new ArrayList<>();
             tablePos.forEach((k, v) -> teams.add(v));
             Collections.sort(teams);
+            for (int i = 0; i <teams.size(); i++) {
+                Team teamAux=teams.get(i);
+                Set<String> nameTeamLost=teamAux.teamLost;
+                for (String name : nameTeamLost) {
+                    for (int j = i; j < teams.size(); j++) {
+                        if(name.equals(teams.get(j).name)){
+                            p++;
+                        }
+                        
+                    }
+                }
+            }
+            
             X=1;
             System.out.printf("The paradox occurs %d time(s).\n",p);
             teams.forEach(team -> System.out.println((X++)+". "+team));
@@ -106,6 +125,7 @@ class Team implements Comparable<Team> {
 
     String name;
     int points, diffGoal, TotalGoal, visitGoal;
+    Set<String> teamLost;
 
     @Override
     public int compareTo(Team t) {
@@ -128,7 +148,6 @@ class Team implements Comparable<Team> {
 
     @Override
     public String toString() {
-        return name;// + " " + points + " " + diffGoal + " " + TotalGoal + " " + visitGoal;
+        return name;//+ " " + points + " " + diffGoal + " " + TotalGoal + " " + visitGoal+" "+teamLost;
     }
-
 }

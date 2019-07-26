@@ -33,27 +33,3 @@ public class Main {
     }
     
 }
-class Player implements Comparable<Player> {
-
-    Integer score;
-    String name;
-
-    public Player(int score, String name) {
-        this.score = score;
-        this.name = name;
-    }
-
-    @Override
-    public int compareTo(Player o) {
-        int c=this.score.compareTo(o.score)*-1;
-        if(c==0)
-            c=this.name.compareTo(o.name);
-        return  c;        
-    }
-
-    @Override
-    public String toString() {
-        return name+" "+score; //To change body of generated methods, choose Tools | Templates.
-    }
-    
-}
