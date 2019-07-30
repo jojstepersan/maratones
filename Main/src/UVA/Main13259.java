@@ -10,10 +10,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  *
@@ -54,14 +52,14 @@ public class Main13259 {
                     team1 = tablePos.get(nameT1);
                 } else {
                     team1 = new Team();
-                    team1.teamLost=new HashSet<>();
+                    team1.teamLost=new ArrayList<>();
                     team1.name = nameT1;
                 }
                 if (tablePos.containsKey(nameT2)) {
                     team2 = tablePos.get(nameT2);
                 } else {
                     team2 = new Team();                    
-                    team2.teamLost=new HashSet<>();
+                    team2.teamLost=new ArrayList<>();
                     team2.name = nameT2;
                 }
 
@@ -102,9 +100,9 @@ public class Main13259 {
             Collections.sort(teams);
             for (int i = 0; i <teams.size(); i++) {
                 Team teamAux=teams.get(i);
-                Set<String> nameTeamLost=teamAux.teamLost;
+                List<String> nameTeamLost=teamAux.teamLost;
                 for (String name : nameTeamLost) {
-                    for (int j = i; j < teams.size(); j++) {
+                    for (int j = i+1; j < teams.size(); j++) {
                         if(name.equals(teams.get(j).name)){
                             p++;
                         }
@@ -125,7 +123,7 @@ class Team implements Comparable<Team> {
 
     String name;
     int points, diffGoal, TotalGoal, visitGoal;
-    Set<String> teamLost;
+    List<String> teamLost;
 
     @Override
     public int compareTo(Team t) {
@@ -151,3 +149,6 @@ class Team implements Comparable<Team> {
         return name;//+ " " + points + " " + diffGoal + " " + TotalGoal + " " + visitGoal+" "+teamLost;
     }
 }
+/*
+
+*/
