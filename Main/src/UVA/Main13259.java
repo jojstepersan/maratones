@@ -109,10 +109,10 @@ public class Main13259 {
                         
                     }
                 }
-            }
-            
+            }            
             X=1;
-            System.out.printf("The paradox occurs %d time(s).\n",p);
+            if(p>0)
+                System.out.printf("The paradox occurs %d time(s).\n",p);
             teams.forEach(team -> System.out.println((X++)+". "+team));
         }
     }

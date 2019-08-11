@@ -7,6 +7,8 @@ package UVA;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 /**
@@ -32,10 +34,8 @@ public class Main12455 {
                 bars[x++] = Integer.valueOf(st.nextToken());
             }
             for (int j = 0; j < Math.pow(2, p); j++) {
-                String bin = Integer.toBinaryString(j);
                 int sum = 0;
-                for (int k = 0; k < p; k++) {
-                    //if (bin.charAt(bin.length()-k-1) == '1') {
+                for (int k = 0; k < p; k++) {                    
                         if ((j >> k & 1) == 1) {
                         sum += bars[k];
                     }
