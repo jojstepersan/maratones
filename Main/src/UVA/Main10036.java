@@ -35,15 +35,10 @@ public class Main10036 {
             for (int j = 0; j < n; j++) {
                 seq[j] = Integer.valueOf(st.nextToken());
             }
-            int range = (int) Math.pow(2, n - 1);
-            for (int j = 0; j < range; j++) {
+             for (int j = 0; j < 1<<(n-1); j++) {
                 int result = 0;
                 for (int l = 0; l < n; l++) {
-                    if ((j >> l & 1) == 1) {
-                        result += seq[l];
-                    } else {
-                        result -= seq[l];
-                    }
+                    result+= (j >> l & 1) == 1? seq[l]:-seq[l];                    
                 }
                 if (result % k == 0) {
                     out.println("Divisible");
