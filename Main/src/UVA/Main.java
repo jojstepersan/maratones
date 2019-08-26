@@ -7,51 +7,37 @@ package UVA;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 /**
  *
- * @author jojstepersan 10036	Divisibility
+ * @author Usuario
  */
 public class Main {
 
-    static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-    static StringTokenizer st;
-    
     public static void main(String[] args) throws Exception {
-        int t = Integer.valueOf(in.readLine());
-        for (int i = 0; i < t; i++) {
-            st = new StringTokenizer(in.readLine());
-            int A, B;
-            A = Integer.valueOf(st.nextToken());
-            B = Integer.valueOf(st.nextToken());
-            if (A == B) {
-                System.out.printf("Case %d: %d %d\n", i + 1, A | B, A & B);
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String s;
+        int n;
+        long dp[] = new long[1000000 + 1];
+        while ((n = Integer.valueOf(in.readLine())) >= 3) {
+            long triangulos = 0;
+            if (dp[n] > 0) {
+                System.out.println(dp[n]);
             } else {
-                long or = A, and = A;
-                int j = 0;
-                while (A + j != B) {
-                    or |= (A + j);
-                    j++;
+                for (int i = 1; i <= n - 2; i++) {
+                    for (int j = i + 1; j <= n - 1; j++) {
+                        for (int k = j + 1; k <= n; k++) {
+                            if ((i + j > k) && (i + k) > j && (j + k) > i) {
+                                triangulos++;
+                                //System.out.println(i + " " + j + " " + k);                            
+                            }
+                        }
+                    }
                 }
-                or |= B;
-                int k=0;
-                while (A + k != B) {
-                    and &= (A + k);
-                    k++;
-                }
-                and &= B;
-
-                System.out.printf("Case %d: %d %d\n", i + 1, or, and);
-
+                System.out.println(triangulos);
+                dp[n]=triangulos;
             }
 
         }
     }
-
 }
-/*
-2
-1 1
-1 2
- */
